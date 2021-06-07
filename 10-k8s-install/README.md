@@ -69,10 +69,10 @@ kubelet --version
 
 脚本是：
 ```
-VERSION=v1.12.2
-ETCD_VERSION=3.2.24
-COREDNS_VERSION=1.2.2
-PAUSE_VERSION=3.1
+VERSION=v1.21.1
+ETCD_VERSION=3.4.13-0
+COREDNS_VERSION=1.8.0
+PAUSE_VERSION=3.4.1
 MY_REGISTRY=registry.cn-hangzhou.aliyuncs.com/google_containers
 
 ## 拉取镜像
@@ -90,8 +90,7 @@ docker tag ${MY_REGISTRY}/kube-scheduler:${VERSION} k8s.gcr.io/kube-scheduler:${
 docker tag ${MY_REGISTRY}/kube-controller-manager:${VERSION} k8s.gcr.io/kube-controller-manager:${VERSION}
 docker tag ${MY_REGISTRY}/kube-proxy:${VERSION} k8s.gcr.io/kube-proxy:${VERSION}
 docker tag ${MY_REGISTRY}/etcd:${ETCD_VERSION} k8s.gcr.io/etcd:${ETCD_VERSION}
-docker tag ${MY_REGISTRY}/coredns:${COREDNS_VERSION} k8s.gcr.io/coredns:${COREDNS_VERSION}
-
+docker tag ${MY_REGISTRY}/coredns:${COREDNS_VERSION} k8s.gcr.io/coredns/coredns:${COREDNS_VERSION}
 docker tag ${MY_REGISTRY}/pause:${PAUSE_VERSION} k8s.gcr.io/pause:${PAUSE_VERSION}
 ```
 
@@ -116,7 +115,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 问题记录：   
-> 如果没有配置config，可能无法运行kubectl  
+> 如果没有配置config，无法运行kubectl  
 > 确保自定义podCidr
 ```
 $ kubectl cluster-info dump | grep -i cidr
@@ -146,7 +145,7 @@ $ kubectl describe pods -n kube-system
 
 ## step 3: 安装一个worker node节点
 
-### Step 3.1 安装kubeadm，参照 Step 1.1
+### Step 3.1 安装kubeadm，参照 Step 1.1 和 Step 2
 
 ### Step 3.2 加入节点
 ```
