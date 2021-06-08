@@ -49,4 +49,4 @@ Try More:
 > 如果去掉了 `tty: true` 后，会发现pod启动不起来，因为直接关闭了的原因
 > 如果去掉了 `stdin: true` 后，会无法交互, 因为stdin被关闭了
 
-> **todo: 直接使用 `shareProcessNamespace: true` 无法得到pod中的pid**
+> **todo: 直接使用 `shareProcessNamespace: true` 无法得到pod中的pid。重启pod即可，该选项不会及时更新**

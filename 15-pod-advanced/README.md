@@ -39,7 +39,7 @@ kubectl create -f my-secret.yaml
 kubectl get secret
 kubectl describe secrets/mysecret
 ```
-应该能看到这个实体
+应该能看到这个实体。  
 
 ### Step 1.4: 在pod中使用
 pod文件参见 my-pod.yaml

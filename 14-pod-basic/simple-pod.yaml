@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: simple-pod
+  name: simple-pod3
 
 spec:
-  shareProcessNamespace: true
+  hostPID: true
   containers:
     - name: shell
       imagePullPolicy: IfNotPresent
@@ -14,4 +14,8 @@ spec:
 
     - name: nginx
       imagePullPolicy: IfNotPresent
-      image: nginx:1.7.9
+      image: nginx:1.8
+
+    - name: hello-world
+      imagePullPolicy: IfNotPresent
+      image: hello-world
