@@ -90,8 +90,12 @@ docker tag ${MY_REGISTRY}/kube-scheduler:${VERSION} k8s.gcr.io/kube-scheduler:${
 docker tag ${MY_REGISTRY}/kube-controller-manager:${VERSION} k8s.gcr.io/kube-controller-manager:${VERSION}
 docker tag ${MY_REGISTRY}/kube-proxy:${VERSION} k8s.gcr.io/kube-proxy:${VERSION}
 docker tag ${MY_REGISTRY}/etcd:${ETCD_VERSION} k8s.gcr.io/etcd:${ETCD_VERSION}
-docker tag ${MY_REGISTRY}/coredns:${COREDNS_VERSION} k8s.gcr.io/coredns/coredns:${COREDNS_VERSION}
+docker tag ${MY_REGISTRY}/coredns:${COREDNS_VERSION} k8s.gcr.io/coredns/coredns:v${COREDNS_VERSION}
 docker tag ${MY_REGISTRY}/pause:${PAUSE_VERSION} k8s.gcr.io/pause:${PAUSE_VERSION}
+
+## 启动服务
+systemctl enable docker.service
+systemctl enable kubelet.service
 ```
 
 ### step 1.3： 使用kubeadm初始化kubernetes
